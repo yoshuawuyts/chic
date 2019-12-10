@@ -9,11 +9,11 @@ pub struct Error {
 
 impl Error {
     /// Create a new `Error` formatter.
-    pub fn new(label: String) -> Self {
+    pub fn new(label: impl ToString) -> Self {
         Self {
             snippet: Snippet {
                 title: Some(Annotation {
-                    label: Some(label),
+                    label: Some(label.to_string()),
                     id: None,
                     annotation_type: AnnotationType::Error,
                 }),
@@ -29,16 +29,16 @@ impl Error {
         line_start: usize,
         start: usize,
         end: usize,
-        source: String,
-        label: String,
+        source: impl ToString,
+        label: impl ToString,
     ) -> Self {
         self.snippet.slices.push(Slice {
-            source,
+            source: source.to_string(),
             line_start,
             origin: None,
             fold: false,
             annotations: vec![SourceAnnotation {
-                label,
+                label: label.to_string(),
                 annotation_type: AnnotationType::Error,
                 range: (start, end),
             }],
@@ -47,9 +47,9 @@ impl Error {
     }
 
     /// Create a new footer.
-    pub fn help(mut self, label: String) -> Self {
+    pub fn help(mut self, label: impl ToString) -> Self {
         self.snippet.footer.push(Annotation {
-            label: Some(label),
+            label: Some(label.to_string()),
             id: None,
             annotation_type: AnnotationType::Help,
         });

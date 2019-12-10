@@ -13,11 +13,11 @@ with the list of annotations below.
     let line = 1;
     let start = cursor.position() as usize;
     let end = cursor.get_ref().len() as usize;
-    let code = cursor.into_inner().to_string();
+    let code = cursor.into_inner();
 
-    let msg = Error::new("expected type, found `x`".to_string())
-        .error(line, start, end, code, "found `x`".to_string())
-        .help("try using a foobs intead".to_string())
+    let msg = Error::new("expected type, found `x`")
+        .error(line, start, end, code, "found `x`")
+        .help("try using a foobs instead")
         .to_string();
 
     println!("{}", msg);
