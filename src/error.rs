@@ -36,7 +36,7 @@ impl Error {
             source,
             line_start,
             origin: None,
-            fold: true,
+            fold: false,
             annotations: vec![SourceAnnotation {
                 label,
                 annotation_type: AnnotationType::Error,
