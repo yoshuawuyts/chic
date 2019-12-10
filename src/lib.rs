@@ -19,6 +19,17 @@
 //! println!("{}", msg);
 //! ```
 //!
+//! Outputs:
+//!
+//! ```txt
+//! error: expected type, found `x`
+//!     |
+//! 260 | This is an example
+//!     | ^^^^^^^^^^^^ found `x`
+//!     |
+//!     = help: try using a foobs instead
+//! ```
+//!
 //! Or convert an `io::Cursor` to an annotated error:
 //!
 //! ```
