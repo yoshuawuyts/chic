@@ -1,0 +1,17 @@
+[package]
+name = "chic"
+version = "1.0.0"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/yoshuawuyts/chic"
+documentation = "https://docs.rs/chic"
+description = "Pretty parser error reporting."
+keywords = ["pretty", "error", "reporting", "stream"]
+categories = ["parser-implementations"]
+authors = ["Yoshua Wuyts <yoshuawuyts@gmail.com>"]
+readme = "README.md"
+edition = "2018"
+
+[dependencies]
+annotate-snippets = "0.6.1"
+
+[dev-dependencies]
